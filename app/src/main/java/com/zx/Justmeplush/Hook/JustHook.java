@@ -100,18 +100,19 @@ public class JustHook implements IXposedHookLoadPackage {
     private int flag = 0;
 
     public void handleLoadPackage(XC_LoadPackage.LoadPackageParam lpparam) throws Throwable {
-        shared = new XSharedPreferences("com.zx.Justmeplush", "config");
-        shared.reload();
-        InvokPackage = shared.getString("APP_INFO", "");
-        //先重启 选择 好 要进行Hook的 app
-        if (InvokPackage == null || InvokPackage.equals("")) {
-            return;
-        } else {
-            if (lpparam.packageName.equals(InvokPackage)) {
-                CLogUtils.e("找到 包名  ");
-                HookAttach();
-            }
-        }
+//        shared = new XSharedPreferences("com.zx.Justmeplush", "config");
+//        shared.reload();
+//        InvokPackage = shared.getString("APP_INFO", "");
+//        //先重启 选择 好 要进行Hook的 app
+//        if (InvokPackage == null || InvokPackage.equals("")) {
+//            return;
+//        } else {
+//            if (lpparam.packageName.equals(InvokPackage)) {
+//                CLogUtils.e("找到 包名  ");
+//                HookAttach();
+//            }
+//        }
+        HookAttach();
         this.lpparam = lpparam;
     }
 
